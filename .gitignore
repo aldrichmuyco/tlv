@@ -1,0 +1,10 @@
+*.pyc
+*~
+__pycache__
+
+tlvadmin/db.sqlite3
+tlvadmin/static/
+
+.env
+.vscode
+venv/

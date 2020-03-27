@@ -1,0 +1,110 @@
+<!-- Main Sidebar Container -->
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-purple elevation-2">
+    <!-- Brand Logo -->
+    <a href="#" class="brand-link text-center">
+        <span class="brand-text font-weight-light">Admin</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">Alexander Pierce</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+
+            {% with request.resolver_match.url_name as url %}
+            <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
+                data-accordion="false">
+
+                <li class="nav-header">MAIN NAVIGATION</li>
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link {% if url == 'home'%} active {% endif %}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p> Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p> Members</p>
+                    </a>
+                </li>
+                <li
+                    class="nav-item {% if url == 'users' or url == 'groups' or url == 'address' %} menu-open {% endif %}">
+                    <a href="#"
+                        class="nav-link {% if url == 'users' or url == 'groups' or url == 'address' %} active {% endif %}">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Configuration
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{% url 'address' %}" class="nav-link {% if url == 'address' %} active {% endif %}">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Address</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'users' %}" class="nav-link {% if url == 'users' %} active {% endif %}">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link {% if url == 'groups' %} active {% endif %}">
+                                <i class="nav-icon far fa-circle nav-icon"></i>
+                                <p>Groups</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Charts
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle"></i>
+                                <p>ChartJS</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle nav-icon"></i>
+                                <p>Flot</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle nav-icon"></i>
+                                <p>Inline</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            {% endwith %}
+
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
